@@ -51,7 +51,7 @@
                                             @endif
                                         </td>
                                         <td>
-                                            @if (!App\Prescription::where('date', date('m-d-yy'))
+                                            @if (!App\Prescription::where('date', date('m-d-Y'))
                 ->where('doctor_id', auth()->user()->id)
                 ->where('user_id', $booking->user->id)
                 ->exists())

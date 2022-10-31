@@ -66,7 +66,7 @@
                                         </td>
                                     </tr>
                                 @empty
-                                    <td>There is no appointment on {{ $date ?? date('m-d-yy') }}</td>
+                                    <td>There is no appointment on {{ $date ?? date('m-d-Y') }}</td>
                                 @endforelse
 
                             </tbody>

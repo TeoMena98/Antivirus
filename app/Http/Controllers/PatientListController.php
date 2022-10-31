@@ -15,7 +15,7 @@ class PatientListController extends Controller
             $bookings = Booking::latest()->where('date', $date)->get();
             return view('admin.patientlist.index', compact('bookings', 'date'));
         };
-        $bookings = Booking::latest()->where('date', date('m-d-yy'))->get();
+        $bookings = Booking::latest()->where('date', date('m-d-Y'))->get();
         return view('admin.patientlist.index', compact('bookings'));
     }
     public function toggleStatus($id)

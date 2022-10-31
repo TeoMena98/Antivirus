@@ -26,7 +26,7 @@
                                         <td>{{ $appointment->doctor->name }}</td>
                                         <td>{{ $appointment->time }}</td>
                                         <td>{{ $appointment->date }}</td>
-                                        <td>{{ $appointment->created_at->format('m-d-yy') }}</td>
+                                        <td>{{ $appointment->created_at->format('m-d-Y') }}</td>
                                         <td>
                                             @if ($appointment->status == 0)
                                                 <p>Not Visited</p>
