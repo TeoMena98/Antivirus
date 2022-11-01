@@ -21,8 +21,10 @@ class PatientListController extends Controller
     public function toggleStatus($id)
     {
         $booking = Booking::find($id);
-        $booking->status = !$booking->status;
-        $booking->save();
+        if(!$booking->status) {
+            $booking->status = !$booking->status;
+            $booking->save();
+        }
         return redirect()->back();
     }
 
