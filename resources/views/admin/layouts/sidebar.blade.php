@@ -5,7 +5,7 @@
                 <div class="logo-img">
 
                 </div>
-                <span class="text">Hospital</span>
+                <span class="text">Antivirus</span>
             </a>
 
         </div>
@@ -20,11 +20,11 @@
 
 
                     <div class="nav-item has-sub">
-                        <a href="javascript:void(0)"><i class="ik ik-list"></i><span>Appointment Time</span> <span
+                        <a href="javascript:void(0)"><i class="ik ik-list"></i><span>Horas de Tutorias</span> <span
                                 class="badge badge-danger"></span></a>
                         <div class="submenu-content">
-                            <a href="{{ route('appointment.create') }}" class="menu-item">Create</a>
-                            <a href="{{ route('appointment.index') }}" class="menu-item">Check</a>
+                            <a href="{{ route('appointment.create') }}" class="menu-item">Crear</a>
+                            <a href="{{ route('appointment.index') }}" class="menu-item">Revisar</a>
 
                         </div>
                     </div>
@@ -32,43 +32,42 @@
 
 
                     <div class="nav-item has-sub">
-                        <a href="javascript:void(0)"><i class="ik ik-heart"></i><span>Prescription</span> <span
+                        <a href="javascript:void(0)"><i class="ik ik-heart"></i><span>Calificaciones</span> <span
                                 class="badge badge-danger"></span></a>
                         <div class="submenu-content">
-                            <a href="{{ route('patient.today') }}" class="menu-item">Today</a>
-                            <a href="{{ route('all.prescriptions') }}" class="menu-item">All
-                                Prescribed Patients</a>
+                            <a href="{{ route('patient.today') }}" class="menu-item">Hoy</a>
+                            <a href="{{ route('all.prescriptions') }}" class="menu-item">Todas las Calificaciones</a>
                         </div>
                     </div>
 
                     @if (auth()->user()->role_id == 2)
                         <div class="nav-item has-sub">
-                            <a href="javascript:void(0)"><i class="ik ik-layers"></i><span>Department</span> <span
+                            <a href="javascript:void(0)"><i class="ik ik-layers"></i><span>Materia</span> <span
                                     class="badge badge-danger"></span></a>
                             <div class="submenu-content">
-                                <a href="{{ route('department.create') }}" class="menu-item">Create</a>
-                                <a href="{{ route('department.index') }}" class="menu-item">View</a>
+                                <a href="{{ route('department.create') }}" class="menu-item">Crear</a>
+                                <a href="{{ route('department.index') }}" class="menu-item">Ver</a>
 
                             </div>
                         </div>
 
                         <div class="nav-item has-sub">
-                            <a href="javascript:void(0)"><i class="ik ik-file-text"></i><span>Doctor</span> <span
+                            <a href="javascript:void(0)"><i class="ik ik-file-text"></i><span>Tutor</span> <span
                                     class="badge badge-danger"></span></a>
                             <div class="submenu-content">
-                                <a href="{{ route('doctor.create') }}" class="menu-item">Create</a>
-                                <a href="{{ route('doctor.index') }}" class="menu-item">View</a>
+                                <a href="{{ route('doctor.create') }}" class="menu-item">Crear</a>
+                                <a href="{{ route('doctor.index') }}" class="menu-item">Ver</a>
 
                             </div>
                         </div>
 
 
                         <div class="nav-item has-sub">
-                            <a href="javascript:void(0)"><i class="ik ik-monitor"></i><span>Patient Appointment</span>
+                            <a href="javascript:void(0)"><i class="ik ik-monitor"></i><span>Tutorias</span>
                                 <span class="badge badge-danger"></span></a>
                             <div class="submenu-content">
-                                <a href="{{ route('patients') }}" class="menu-item">Today Appointment</a>
-                                <a href="{{ route('all.appointments') }}" class="menu-item">All Time Appointment</a>
+                                <a href="{{ route('patients') }}" class="menu-item">Tutorias de Hoy</a>
+                                <a href="{{ route('all.appointments') }}" class="menu-item">Todas las Tutorias</a>
 
                             </div>
                         </div>

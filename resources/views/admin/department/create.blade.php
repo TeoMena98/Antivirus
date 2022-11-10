@@ -8,8 +8,9 @@
                 <div class="page-header-title">
                     <i class="ik ik-command bg-blue"></i>
                     <div class="d-inline">
-                        <h5>Department</h5>
-                        <span>Add A Department for Doctor's Specialty</span>
+                        <h5>Materia</h5>
+                        <span>
+Agregar una materia para la especialidad del tutor</span>
                     </div>
                 </div>
             </div>
@@ -19,8 +20,8 @@
                         <li class="breadcrumb-item">
                             <a href="../index.html"><i class="ik ik-home"></i></a>
                         </li>
-                        <li class="breadcrumb-item"><a href="#">Department</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Create</li>
+                        <li class="breadcrumb-item"><a href="#">Materia</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Crear</li>
                     </ol>
                 </nav>
             </div>
@@ -37,13 +38,13 @@
 
             <div class="card">
                 <div class="card-header">
-                    <h3>Add Department</h3>
+                    <h3>Agregar Materia</h3>
                 </div>
                 <div class="card-body">
                     <form class="forms-sample" action="{{ route('department.store') }}" method="post">@csrf
 
                         <div class="form-group">
-                            <label for="">Department Name</label>
+                            <label for="">Nombre Materia</label>
                             <input type="text" name="department"
                                 class="form-control @error('department') is-invalid @enderror"
                                 value="{{ old('department') }}">

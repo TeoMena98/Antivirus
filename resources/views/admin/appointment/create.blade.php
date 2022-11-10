@@ -8,8 +8,8 @@
                 <div class="page-header-title">
                     <i class="ik ik-command bg-blue"></i>
                     <div class="d-inline">
-                        <h5>Doctor Appointments</h5>
-                        <span>Choose your available time for appointments</span>
+                        <h5>Horas de Tutorias</h5>
+                        <span>Elige tu horario disponible para Tutorias</span>
                     </div>
                 </div>
             </div>
@@ -19,7 +19,7 @@
                         <li class="breadcrumb-item">
                             <a href="../index.html"><i class="ik ik-home"></i></a>
                         </li>
-                        <li class="breadcrumb-item"><a href="#">Available time</a></li>
+                        <li class="breadcrumb-item"><a href="#">Tiempo Disponible</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Create</li>
                     </ol>
                 </nav>
@@ -46,7 +46,7 @@
                 @csrf
                 <div class="card">
                     <div class="card-header">
-                        <h3>Choose A Date</h3>
+                        <h3>Elija una fecha</h3>
                     </div>
                     <div class="card-body">
                         <input type="text" class="form-control datetimepicker-input" id="datepicker"
@@ -56,8 +56,8 @@
 
                 <div class="card">
                     <div class="card-header">
-                        Choose AM Time
-                        <span class="ml-auto">Check/Uncheck
+                    Elija la hora de la mañana
+                        <span class="ml-auto">Seleccionar Todo/Deseleccionar Todo
                             <input type="checkbox"
                                 onclick=" for(c in document.getElementsByName('time[]')) document.getElementsByName('time[]').item(c).checked=this.checked">
                         </span>
@@ -116,7 +116,7 @@
 
                 <div class="card">
                     <div class="card-header">
-                        Choose PM Time
+                    Elija la hora de la tarde
                     </div>
                     <div class="card-body">
 

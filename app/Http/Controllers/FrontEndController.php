@@ -43,10 +43,14 @@ class FrontEndController extends Controller
 
         $request->validate(['time' => 'required']);
         $check = $this->checkBookingTimeInterval();
-        if ($check) {
-            return redirect()->back()->with('errMessage', 'You already made an appointment. Please check your email for the appointment!');
+        foreach ($check as $key => $checkos) {
+           
+        
+      
+        if ($checkos->Conteo == 3) {
+            return redirect()->back()->with('errMessage', 'Ya superaste el limite de tutorias. Por favor verifica tu correo!');
         }
-
+    };
         $doctorId = $request->doctorId;
         $time = $request->time;
         $appointmentId = $request->appointmentId;
@@ -79,10 +83,12 @@ class FrontEndController extends Controller
     // check if user already make a booking.
     public function checkBookingTimeInterval()
     {
-        return Booking::orderby('id', 'desc')
+         $checkeo = Booking::selectRaw('Count(id) As Conteo')
             ->where('user_id', auth()->user()->id)
             ->whereDate('created_at', date('y-m-d'))
-            ->exists();
+            ->get();
+
+            return $checkeo;
     }
 
     public function myBookings()

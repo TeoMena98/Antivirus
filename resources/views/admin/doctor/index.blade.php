@@ -8,8 +8,8 @@
                 <div class="page-header-title">
                     <i class="ik ik-inbox bg-blue"></i>
                     <div class="d-inline">
-                        <h5>Doctors</h5>
-                        <span>List of All Doctors</span>
+                        <h5>Tutores</h5>
+                        <span>Lista de Todos los Tutores</span>
                     </div>
                 </div>
             </div>
@@ -20,9 +20,9 @@
                             <a href="../index.html"><i class="ik ik-home"></i></a>
                         </li>
                         <li class="breadcrumb-item">
-                            <a href="#">Doctors</a>
+                            <a href="#">Tutores</a>
                         </li>
-                        <li class="breadcrumb-item active" aria-current="page">Index</li>
+                        <li class="breadcrumb-item active" aria-current="page">inicio</li>
                     </ol>
                 </nav>
             </div>

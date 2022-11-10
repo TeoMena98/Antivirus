@@ -1,6 +1,9 @@
 <?php
 
+use App\Appointment;
 use Illuminate\Support\Facades\Route;
+use App\Mail\AppointmentMail;
+use Illuminate\Support\Facades\Mail;
 
 // Home Page Routes
 Route::get('/', 'FrontEndController@index');
@@ -9,6 +12,13 @@ Route::get('/new-appointment/{doctorId}/{date}', 'FrontEndController@show')->nam
 Route::get('/dashboard', 'DashBoardController@index');
 
 Route::get('/home', 'HomeController@index');
+
+Route::get('appointment_mail', function(){
+    $correo = new AppointmentMail;
+    Mail::to('mateomena11@gmail.com')->send($correo);
+return "Mensaje enviado";
+
+});
 
 Auth::routes();
 
@@ -41,3 +51,5 @@ Route::group(['middleware' => ['auth', 'doctor']], function () {
     Route::get('/prescription/{userId}/{date}', 'PrescriptionController@show')->name('prescription.show');
     Route::get('/all-prescriptions', 'PrescriptionController@showAllPrescriptions')->name('all.prescriptions');
 });
+
+

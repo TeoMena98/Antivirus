@@ -11,25 +11,25 @@
                 @endif
                 <div class="card">
                     <div class="card-header">
-                        Total Patients: {{ $bookings->count() }}
+                        Total estudiantes calificados: {{ $bookings->count() }}
                     </div>
                     <div class="card-body table-responsive-lg">
                         <table class="table table-striped">
-                            <thead>
+                        <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">Photo</th>
-                                    <th scope="col">Date</th>
-                                    <th scope="col">User</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">Phone</th>
-                                    <th scope="col">Gender</th>
-
-                                    <th scope="col">Doctor</th>
-
-                                    <th scope="col">Prescription</th>
+                                    
+                                    <th scope="col">Fecha</th>
+                                    <th scope="col">Estudiante</th>
+                                    <th scope="col">Correo</th>
+                                    <th scope="col">Telefono</th>
+                                    
+                                    
+                                    <th scope="col">Tutor</th>
+                                    <th scope="col">Calificar</th>
                                 </tr>
                             </thead>
+                     
                             <tbody>
                                 @forelse($bookings as $key=>$booking)
                                     <tr>
@@ -40,7 +40,7 @@
                                         <td>{{ $booking->user->name }}</td>
                                         <td>{{ $booking->user->email }}</td>
                                         <td>{{ $booking->user->phone_number }}</td>
-                                        <td>{{ $booking->user->gender }}</td>
+                                       
                                         <td>{{ $booking->doctor->name }}</td>
 
                                         <td>
@@ -61,7 +61,7 @@
                                         </td>
                                     </tr>
                                 @empty
-                                    <td>There is no patient!</td>
+                                    <td>No hay Calificaciones!</td>
                                 @endforelse
 
                             </tbody>

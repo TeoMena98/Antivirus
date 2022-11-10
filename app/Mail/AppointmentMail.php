@@ -16,10 +16,11 @@ class AppointmentMail extends Mailable
      *
      * @return void
      */
-    public $mailData;
-    public function __construct($mailData)
+     public $mailData;
+    public function __construct()
     {
-        $this->mailData = $mailData;
+        // dd($mailData);
+        // $this->mailData = $mailData;
     }
 
     /**
@@ -29,6 +30,6 @@ class AppointmentMail extends Mailable
      */
     public function build()
     {
-        return $this->view('email.appointment');
+        return $this->view('email.appointment_mail');
     }
 }

@@ -10,8 +10,8 @@
                 <div class="page-header-title">
                     <i class="ik ik-command bg-blue"></i>
                     <div class="d-inline">
-                        <h5>Doctors</h5>
-                        <span>Available time</span>
+                        <h5>Tutores</h5>
+                        <span>Tiempo Disponible</span>
 
                     </div>
                 </div>
@@ -22,8 +22,8 @@
                         <li class="breadcrumb-item">
                             <a href="../index.html"><i class="ik ik-home"></i></a>
                         </li>
-                        <li class="breadcrumb-item"><a href="#">Doctor</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Appointment</li>
+                        <li class="breadcrumb-item"><a href="#">Tutor</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Tutoria</li>
                     </ol>
                 </nav>
             </div>
@@ -56,10 +56,11 @@
 
                 <div class="card">
                     <div class="card-header">
-                        Choose date
+                        
+Elige fecha
                         <br>
                         @if (isset($date))
-                            Your timetable for:
+                        tu horario de:
                             {{ $date }}
                         @endif
 
@@ -68,7 +69,7 @@
                         <input type="text" class="form-control datetimepicker-input" id="datepicker"
                             data-toggle="datetimepicker" data-target="#datepicker" name="date">
                         <br>
-                        <button type="submit" class="btn btn-primary">Check</button>
+                        <button type="submit" class="btn btn-primary">Seleccionar</button>
                     </div>
                 </div>
             </form>
@@ -78,8 +79,8 @@
 
                     <div class="card">
                         <div class="card-header">
-                            Choose AM time
-                            <span style="margin-left: 700px">Check/Uncheck
+                        Elija la hora de la mañana
+                            <span style="margin-left: 700px">Seleccionar Todo/Deseleccionar Todo
                                 <input type="checkbox"
                                     onclick=" for(c in document.getElementsByName('time[]')) document.getElementsByName('time[]').item(c).checked=this.checked">
                             </span>
@@ -161,7 +162,7 @@
 
     <div class="card">
         <div class="card-header">
-            Choose PM time
+        Elija la hora de la tarde
         </div>
         <div class="card-body">
             <table class="table table-striped">
@@ -277,9 +278,9 @@
         <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Creator</th>
-                <th scope="col">Date</th>
-                <th scope="col">View & Update</th>
+                <th scope="col">Creador</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Ver y Actualizar</th>
             </tr>
         </thead>
         <tbody>
@@ -291,7 +292,7 @@
                     <td>
                         <form action="{{ route('appointment.check') }}" method="post">@csrf
                             <input type="hidden" name="date" value="{{ $appointment->date }}">
-                            <button type="submit" class="btn btn-primary">View & Update</button>
+                            <button type="submit" class="btn btn-primary">Ver y Actualizar</button>
                         </form>
                     </td>
                 </tr>

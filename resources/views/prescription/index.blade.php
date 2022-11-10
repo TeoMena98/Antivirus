@@ -11,43 +11,42 @@
                 @endif
                 <div class="card">
                     <div class="card-header">
-                        Total Patients: {{ $bookings->count() }}
+                    Total estudiantes calificados: {{ $bookings->count() }}
                     </div>
                     <div class="card-body table-responsive-lg">
                         <table class="table table-striped">
-                            <thead>
+                        <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">Photo</th>
-                                    <th scope="col">Date</th>
-                                    <th scope="col">User</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">Phone</th>
-                                    <th scope="col">Gender</th>
-                                    <th scope="col">Time</th>
-                                    <th scope="col">Doctor</th>
+                                    
+                                    <th scope="col">Fecha</th>
+                                    <th scope="col">Estudiante</th>
+                                    <th scope="col">Correo</th>
+                                    <th scope="col">Telefono</th>
+                                    
+                                    <th scope="col">Hora</th>
+                                    <th scope="col">Tutor</th>
                                     <th scope="col">Status</th>
-                                    <th scope="col">Prescription</th>
+                                    <th scope="col">Calificar</th>
                                 </tr>
                             </thead>
+                      
                             <tbody>
                                 @forelse($bookings as $key=>$booking)
                                     <tr>
                                         <td>{{ $key + 1 }}</td>
-                                        <td><img src="profile/{{ $booking->user->image }}" width="80">
-                                        </td>
                                         <td>{{ $booking->date }}</td>
                                         <td>{{ $booking->user->name }}</td>
                                         <td>{{ $booking->user->email }}</td>
                                         <td>{{ $booking->user->phone_number }}</td>
-                                        <td>{{ $booking->user->gender }}</td>
+                                       
                                         <td>{{ $booking->time }}</td>
                                         <td>{{ $booking->doctor->name }}</td>
                                         <td>
                                             @if ($booking->status == 0)
-                                                <a><button class="btn btn-warning">Pending</button></a>
+                                                <a><button class="btn btn-warning">Pendiente</button></a>
                                             @else
-                                                <a><button class="btn btn-success">Checked-In</button></a>
+                                                <a><button class="btn btn-success">Realizada</button></a>
                                             @endif
                                         </td>
                                         <td>
@@ -57,18 +56,18 @@
                 ->exists())
                                                 <button type="button" class="btn btn-primary" data-toggle="modal"
                                                     data-target="#exampleModal{{ $booking->user_id }}">
-                                                    Prescribe
+                                                    Calificar
                                                 </button>
                                                 @include('prescription.form')
 
                                             @else
                                                 <a href="{{ route('prescription.show', [$booking->user_id, $booking->date]) }}"
-                                                    class="btn btn-info">View</a>
+                                                    class="btn btn-info">Ver</a>
                                             @endif
                                         </td>
                                     </tr>
                                 @empty
-                                    <td>There is no patient at this time!</td>
+                                    <td>No hay calificaciones en el momento!</td>
                                 @endforelse
 
                             </tbody>
