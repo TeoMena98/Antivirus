@@ -9,7 +9,10 @@ use App\User;
 use App\Booking;
 use App\Prescription;
 use App\Mail\AppointmentMail;
+use Carbon\Carbon;
+use Spatie\GoogleCalendar\Event;
 
+use Illuminate\Support\Str;
 class FrontEndController extends Controller
 {
     public function index(Request $request)
@@ -52,18 +55,50 @@ class FrontEndController extends Controller
         }
     };
         $doctorId = $request->doctorId;
-        $time = $request->time;
+    
+        $time = Carbon::createFromFormat('h A',$request->time);
+      
         $appointmentId = $request->appointmentId;
-        $date = $request->date;
-        Booking::create([
-            'user_id' => auth()->user()->id,
-            'doctor_id' => $doctorId,
-            'time' => $time,
-            'date' => $date,
-            'status' => 0
-        ]);
+        $date = Carbon::createFromFormat('m-d-Y', $request->date);
+
+
+// dd();
         $doctor = User::where('id', $doctorId)->first();
         Time::where('appointment_id', $appointmentId)->where('time', $time)->update(['status' => 1]);
+
+$startTime = Carbon::parse(date('d-M-Y',strtotime($date)).' '.date('g:i A',strtotime($time)));
+$endTime = (clone $startTime)->addMinutes(30);
+$tutor = "Tutoria con".$doctor->name;
+dd($startTime);
+$e = new Event;
+dd(auth()->user()->email);
+dd($e->conferenceData =['createRequest' =>[
+    'requestId'=>Str::random(30).time(),
+]]);
+
+
+
+
+dd($e);
+
+
+Booking::create([
+    'user_id' => auth()->user()->id,
+    'doctor_id' => $doctorId,
+    'time' => $time,
+    'date' => $date,
+    'status' => 0
+]);
+        // Event::create([
+        //     'name'=> $tutor,
+        //     'startDateTime' => $startTime,
+        //     'endDateTime' => $endTime
+        // ]);
+
+       
+     
+
+
 
         // Send email notification
         $mailData = [
@@ -77,8 +112,11 @@ class FrontEndController extends Controller
         } catch (\Exception $e) {
         }
 
-        return redirect()->back()->with('message', 'Your appointment was booked for ' . $date . ' at ' . $time . ' with ' . $doctor->name . '.');
+        return redirect()->back()->with('message', 'Tu tutoria ha sido agendada para el dia ' . $date . ' a las ' . $time . ' con ' . $doctor->name . '.');
     }
+
+
+    
 
     // check if user already make a booking.
     public function checkBookingTimeInterval()
